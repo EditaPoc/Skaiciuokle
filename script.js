@@ -6,14 +6,17 @@ const UI = {
 }
 
 function calculateArea() {
-    return UI.widthInput.value * UI.heightInput.value;
+    return UI.widthInput.value * UI.heightInput.value; 
 }
 
-
 UI.addButton.addEventListener("click", () => {
-    console.log("Paspaudžiau")
+    if (UI.areaInput.value == ""){
     UI.areaInput.value = calculateArea();
-})
-
-UI.areaInput.value, UI.widthInput.value, UI.heightInput.value = "";
-
+    }
+    else if (UI.widthInput.value == ""){
+        UI.widthInput.value = UI.areaInput.value / UI.heightInput.value;
+    }
+    else if (UI.heightInput.value == ""){
+        UI.heightInput.value = UI.areaInput.value / UI.widthInput.value;
+    }
+});
